@@ -1,0 +1,13 @@
+<div class="news-detail p-4 rounded shadow-sm">
+    <h2 class="text-center mb-4 news-title">{{ newsTitle }}</h2>
+
+    <div class="text-center mb-3">
+        <img [src]="newsImage" alt="صورة الخبر" class="img-fluid rounded" style="max-height: 350px;">
+    </div>
+
+    <div class="news-content" [innerHTML]="newsContent"></div>
+
+    <div class="mt-4 text-center">
+        <a routerLink="/home" class="btn btn-warning">عودة للصفحة الرئيسية</a>
+    </div>
+</div>
