@@ -1,13 +1,17 @@
-<div class="news-detail p-4 rounded shadow-sm">
-    <h2 class="text-center mb-4 news-title">{{ newsTitle }}</h2>
+<div class="news-detail container p-4 rounded shadow-sm">
+    <h2 class="text-center mb-4 news-title">
+        <i class="fas fa-newspaper me-2"></i> {{ newsTitle }}
+    </h2>
 
-    <div class="text-center mb-3">
-        <img [src]="newsImage" alt="صورة الخبر" class="img-fluid rounded" style="max-height: 350px;">
+    <div class="text-center mb-4">
+        <img [src]="newsImage" alt="صورة الخبر" class="img-fluid rounded news-image">
     </div>
 
     <div class="news-content" [innerHTML]="newsContent"></div>
 
-    <div class="mt-4 text-center">
-        <a routerLink="/home" class="btn btn-warning">عودة للصفحة الرئيسية</a>
+    <div class="mt-5 text-center">
+        <a routerLink="/home" class="btn btn-warning px-4 py-2 fw-bold">
+            <i class="fas fa-arrow-left me-2"></i> عودة للصفحة الرئيسية
+        </a>
     </div>
 </div>
