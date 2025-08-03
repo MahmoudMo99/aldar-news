@@ -4,6 +4,7 @@ import { NewsDetails } from './pages/news-details/news-details';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { UserLayout } from './layouts/user-layout/user-layout';
 import { AdminLayout } from './layouts/admin-layout/admin-layout';
+import { AddNews } from './pages/add-news/add-news';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,6 +21,9 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: AdminLayout,
-    children: [{ path: '', component: Dashboard }],
+    children: [
+      { path: '', component: Dashboard },
+      { path: 'add-new', component: AddNews },
+    ],
   },
 ];

@@ -1,6 +1,14 @@
-<header>
-    <div class="fs-3 fw-bold"><span>لوحة التحكم</span></div>
-    <div>
-        <img src="/images/logo.jpg" alt="الشعار" class="logo" style="border-radius: 50%;">
+<header class="dashboard-header">
+    <div class="header-title d-none d-md-block">
+        <span class="fs-3">لوحة التحكم</span>
+    </div>
+
+    <nav class="header-nav">
+        <a class="fs-5" routerLink="/dashboard"> صفحة الأخبار</a>
+        <a class="fs-5" routerLink="/dashboard/add-new">إضافة خبر</a>
+    </nav>
+
+    <div class="header-logo">
+        <img src="/images/logo.jpg" alt="الشعار" class="logo">
     </div>
 </header>
