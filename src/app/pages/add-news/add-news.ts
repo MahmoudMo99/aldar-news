@@ -6,6 +6,7 @@ import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-add-news',
+  standalone: true,
   imports: [CommonModule, RouterModule, ReactiveFormsModule, QuillModule],
   templateUrl: './add-news.html',
   styleUrl: './add-news.scss',
@@ -21,16 +22,21 @@ export class AddNews {
   });
 
   selectedImage: File | null = null;
+  previewHtml: string | null = null;
 
   quillConfig = {
     toolbar: [
       ['bold', 'italic', 'underline', 'strike'],
-      [{ header: 1 }, { header: 2 }],
+      [{ header: 1 }, { header: 2 }, { header: 3 }],
       [{ list: 'ordered' }, { list: 'bullet' }],
-      [{ align: [] }],
+      [{ direction: 'rtl' }, { align: [] }],
       ['link', 'image', 'video'],
       ['clean'],
     ],
+    imageResize: {
+      modules: ['Resize', 'DisplaySize', 'Toolbar'],
+    },
+    bounds: '.custom-quill-editor',
   };
 
   onFileChange(event: any) {
@@ -43,14 +49,6 @@ export class AddNews {
 
   addNews() {
     if (this.newsForm.invalid) return;
-
-    const formData = new FormData();
-    formData.append('title', this.newsForm.value.title!);
-    formData.append('description', this.newsForm.value.description!);
-    if (this.selectedImage) {
-      formData.append('image', this.selectedImage);
-    }
-
-    console.log('FormData ready:', formData);
+    this.previewHtml = this.newsForm.get('description')?.value ?? null;
   }
 }
