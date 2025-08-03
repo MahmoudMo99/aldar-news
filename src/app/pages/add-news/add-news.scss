@@ -28,3 +28,39 @@ select:focus {
   box-shadow: none !important;
   border: 2px solid #ffc107 !important;
 }
+
+::ng-deep .custom-quill-editor {
+  direction: rtl !important;
+  text-align: right !important;
+
+  .ql-editor {
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: "Cairo", sans-serif;
+  }
+
+  .ql-toolbar {
+    direction: rtl !important;
+    text-align: right !important;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-bottom: none;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+  }
+
+  .ql-container {
+    direction: rtl !important;
+    text-align: right !important;
+    border: 1px solid #ced4da;
+    border-top: none;
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    background-color: #fff;
+  }
+
+  .ql-placeholder {
+    direction: rtl !important;
+    text-align: right !important;
+  }
+}
