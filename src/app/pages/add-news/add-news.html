@@ -2,27 +2,32 @@
     <div class="container py-3">
         <div class="form-container p-4">
             <h2 class="text-center custom-header">نشر خبر جديد</h2>
+
             <form [formGroup]="newsForm" (ngSubmit)="addNews()">
                 <div class="mb-3">
                     <label for="newsTitle" class="form-label">عنوان الخبر</label>
-                    <input type="text" class="form-control" id="newsTitle" formControlName="title"
-                        placeholder="اكتب عنوان الخبر" />
+                    <input type="text" id="newsTitle" class="form-control" placeholder="اكتب عنوان الخبر"
+                        formControlName="title" />
                 </div>
 
                 <div class="mb-3">
                     <label for="newsImage" class="form-label">صورة رئيسية للخبر</label>
-                    <input type="file" class="form-control" id="newsImage" (change)="onFileChange($event)" />
+                    <input type="file" accept="image/*" id="newsImage" class="form-control"
+                        (change)="onFileChange($event)" />
                 </div>
 
                 <div class="mb-3">
                     <label for="newsDescription" class="form-label">وصف الخبر</label>
-                    <quill-editor formControlName="description" [modules]="quillConfig"
-                        [placeholder]="'اكتب وصف الخبر هنا...'" [styles]="{ direction: 'rtl', textAlign: 'right' }"
-                        class="custom-quill-editor"></quill-editor>
+                    <quill-editor id="newsDescription" class="custom-quill-editor" formControlName="description"
+                        [modules]="quillConfig" [placeholder]="'اكتب وصف الخبر هنا...'"
+                        (onContentChanged)="onContentChanged()" format="html"
+                        [styles]="{ direction: 'rtl', textAlign: 'right' }"></quill-editor>
                 </div>
 
                 <div class="text-end">
-                    <button type="submit" class="btn btn-warning" [disabled]="newsForm.invalid">نشر الخبر</button>
+                    <button type="submit" class="btn btn-warning" [disabled]="newsForm.invalid">
+                        نشر الخبر
+                    </button>
                 </div>
             </form>
 
